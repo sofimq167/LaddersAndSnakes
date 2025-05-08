@@ -17,6 +17,12 @@ document.body.appendChild(renderer.domElement);
 document.addEventListener('DOMContentLoaded', function() {
   const backgroundMusic = document.getElementById('backgroundMusic');
   backgroundMusic.volume = 0.3;
+
+  document.getElementById("menu").addEventListener("click", function () {
+    backgroundMusic.play().catch((e) => {
+      console.warn("No se pudo reproducir la música de fondo automáticamente:", e);
+    });
+  });
 });
 
 // ------------------- ORBIT CONTROLS -------------------
