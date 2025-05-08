@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Juego de Escaleras y Serpientes</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/MTLLoader.js"></script>
+    <!-- jsDelivr  -->
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+
+    <!-- UNPKG -->
+    <script src="https://unpkg.com/fireworks-js@2.x/dist/index.umd.js"></script>
+
+</head>
+
+<body>
+    <div class="fireworks"></div>
+    <!-- Menú de inicio -->
+    <div id="menu">
+        <h1>Juego de Escaleras y Serpientes</h1>
+        <button class="btn" onclick="startGame(1)">1 Jugador</button>
+        <button class="btn" onclick="startGame(2)">2 Jugadores</button>
+    </div>
+
+    <!-- Interfaz de juego -->
+    <div id="ui">
+        <button id="rollButton" class="btn">Tirar dado</button>
+        <div id="scoreBoard">
+            <div id="player1Score"><strong>Jugador 1 (Link):</strong> <span id="score1">0</span></div>
+            <div id="player2Score"><strong>Jugador 2 (Zelda):</strong> <span id="score2">0</span></div>
+        </div>
+        
+    </div>
+
+    <div id="gameDialog" class="game-dialog">
+        <div class="dialog-content">
+          <p id="dialogMessage"></p>
+          <button id="dialogOkButton">OK</button>
+        </div>
+    </div>
+    <!-- Audios -->
+    <audio autoplay loop id="backgroundMusic" volume="0.5">
+        <source src = "./src/sounds/background.mp3" type = "audio/mpeg">
+    </audio>
+    <audio id="winSound" src="./src/sounds/win_sound.mp3" preload="auto"></audio>
+    <audio id="diceSound" src="./src/sounds/dice.mp3" preload="auto"></audio>
+    <audio id="snakeSound" preload="auto">
+        <source src="./src/sounds/snake_sound.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="ladderSound" preload="auto">
+        <source src="./src/sounds/ladder_sound.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="backgroundMusic" autoplay loop volume="0.3">
+        <source src="./src/sounds/background.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts del juego -->
+    <script>
+        function togglePlayerScores(num) {
+            document.getElementById("player1Score").style.display = "block";
+            document.getElementById("player2Score").style.display = num === 2 ? "block" : "none";
+        }
+    </script>
+    <script src="mygame.js"></script>
+
+</body>
+
+</html>
